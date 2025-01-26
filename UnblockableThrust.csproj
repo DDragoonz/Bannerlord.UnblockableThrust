@@ -33,8 +33,23 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Bannerlord.MCM" Version="5.0.0" IncludeAssets="compile" />
+    </ItemGroup>
+    <ItemGroup>
         <Reference Include="0Harmony">
           <HintPath>..\..\Steam Games\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="MCM.UI.Adapter.MCMv5">
+            <Private>false</Private>
+            <HintPath>..\..\Steam Games\steamapps\workshop\content\261550\2859238197\bin\Win64_Shipping_Client\MCM.UI.Adapter.MCMv5.dll</HintPath>
+        </Reference>
+        <Reference Include="MCMv5">
+            <Private>false</Private>
+            <HintPath>..\..\Steam Games\steamapps\workshop\content\261550\2859238197\bin\Win64_Shipping_Client\MCMv5.dll</HintPath>
+        </Reference>
+        <Reference Include="MCMv5.UI">
+            <Private>false</Private>
+            <HintPath>..\..\Steam Games\steamapps\workshop\content\261550\2859238197\bin\Win64_Shipping_Client\MCMv5.UI.dll</HintPath>
         </Reference>
         <Reference Include="SandBox">
           <HintPath>..\..\Steam Games\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
@@ -231,6 +246,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="UnblockableThrustConfig.cs" />
         <Compile Include="UnblockableThrustPatches.cs" />
         <Compile Include="UnblockableThrustSubmodule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>

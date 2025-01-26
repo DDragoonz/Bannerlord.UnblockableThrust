@@ -1,7 +1,7 @@
 <Module>
      <Name value="Unblockable Thrust"/>
      <Id value="UnblockableThrust"/>
-     <Version value="v1.0.0"/>
+     <Version value="v1.1.0"/>
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
@@ -11,6 +11,7 @@
          <DependedModule Id="CustomBattle"/>
          <DependedModule Id="StoryMode" />
          <DependedModule Id="Bannerlord.Harmony"/>
+         <DependedModule Id="Bannerlord.MBOptionScreen"/>
      </DependedModules>
      <SubModules>
          <SubModule>
