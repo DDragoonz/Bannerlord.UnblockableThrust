@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="EN" />
+  </tags>
+  <strings>
+    
+    <!-- MCM -->
+    
+    <string id="UnbTh_00000" text="Settings" />
+    <string id="UnbTh_00001" text="Player Only (attacking)" />
+    <string id="UnbTh_00002" text="Shall crush through only applied if dealt by player (when attacking)?" />
+    <string id="UnbTh_00003" text="Player Only (defending)" />
+    <string id="UnbTh_00004" text="Shall crush through only applied to player (when defending)? require player only attacking to be false. this means ONLY PLAYER need to parry thrust attack" />
+    <string id="UnbTh_00005" text="Mounted Only" />
+    <string id="UnbTh_00006" text="Shall crush through only applied when mounted?" />
+    <string id="UnbTh_00007" text="Minimum Relative Speed" />
+    <string id="UnbTh_00008" text="Minimum relative speed for crush through to be applied" />
+    
+    
+    
+  </strings>
+</base>
