@@ -23,8 +23,20 @@ namespace UnblockableThrust
         [SettingPropertyGroup("{=UnbTh_00000}Settings", GroupOrder = 1)]
         public bool MountedOnly{ get; set; } = false;
         
-        [SettingPropertyFloatingInteger("{=UnbTh_00007}Minimum Relative Speed", 0f, 100f, "0.0", Order = 1, RequireRestart = false, HintText = "{=UnbTh_00008}Minimum relative speed for crush through to be applied")]
+        [SettingPropertyFloatingInteger("{=UnbTh_00007}Minimum Relative Speed", 0f, 100f, "0.0 m/s", Order = 1, RequireRestart = false, HintText = "{=UnbTh_00008}Minimum relative speed for crush through to be applied")]
         [SettingPropertyGroup("{=UnbTh_00000}Settings", GroupOrder = 1)]
         public float MinRelativeSpeed{ get; set; } = 0;
+        
+        [SettingPropertyBool("{=UnbTh_00009}Crush Through Shield", Order = 3, RequireRestart = false, HintText = "{=UnbTh_00010}Allow thrust attack to crush through shield. Potentially Over Powered",IsToggle = true)]
+        [SettingPropertyGroup("{=UnbTh_00009}Crush Through Shield", GroupOrder = 2)]
+        public bool CrushThroughShield{ get; set; } = false;
+        
+        [SettingPropertyBool("{=UnbTh_00005}Mounted Only", Order = 0, RequireRestart = false, HintText = "{=UnbTh_00006}Shall crush through only applied when mounted?")]
+        [SettingPropertyGroup("{=UnbTh_00009}Crush Through Shield", GroupOrder = 2)]
+        public bool ShieldMountedOnly{ get; set; } = true;
+        
+        [SettingPropertyFloatingInteger("{=UnbTh_00007}Minimum Relative Speed", 0f, 100f, "0.0 m/s", Order = 1, RequireRestart = false, HintText = "{=UnbTh_00008}Minimum relative speed for crush through to be applied")]
+        [SettingPropertyGroup("{=UnbTh_00009}Crush Through Shield", GroupOrder = 2)]
+        public float ShieldMinRelativeSpeed{ get; set; } = 10;
     }
 }

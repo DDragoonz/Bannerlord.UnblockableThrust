@@ -16,6 +16,8 @@
     <string id="UnbTh_00006" text="Shall crush through only applied when mounted?" />
     <string id="UnbTh_00007" text="Minimum Relative Speed" />
     <string id="UnbTh_00008" text="Minimum relative speed for crush through to be applied" />
+    <string id="UnbTh_00009" text="Crush Through Shield" />
+    <string id="UnbTh_00010" text="Allow thrust attack to crush through shield. Potentially Over Powered" />
     
     
     

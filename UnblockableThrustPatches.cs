@@ -27,47 +27,65 @@ namespace UnblockableThrust
             ref bool crushedThrough,
             ref bool chamber)
         {
-
-            if (strikeType == StrikeType.Thrust && collisionResult == CombatCollisionResult.Blocked && attackerAgent != null && defenderAgent != null)
+            if (crushedThrough)
             {
+                // already crushed through
+                return;
+            }
+
+            if (strikeType == StrikeType.Thrust && attackerAgent != null && defenderAgent != null)
+            {
+                bool allowCrushThroughShield = false;
+                double minRelativeSpeed = 0;
+                bool mountedOnly = false;
+                EquipmentIndex wieldedOffhandItemIndex = defenderAgent.GetWieldedItemIndex(Agent.HandIndex.OffHand);
+                bool isBlockedByShield = wieldedOffhandItemIndex != EquipmentIndex.None && defenderAgent.Equipment[wieldedOffhandItemIndex].CurrentUsageItem.IsShield;
+                
                 if (UnblockableThrustConfig.Instance != null)
                 {
                     if (UnblockableThrustConfig.Instance.PlayerOnlyAsAttacker && !attackerAgent.IsPlayerControlled)
                     {
                         return;
                     }
-                
+
                     if (UnblockableThrustConfig.Instance.PlayerOnlyAsDefender && !defenderAgent.IsPlayerControlled)
                     {
                         return;
                     }
+                    
+                    allowCrushThroughShield = UnblockableThrustConfig.Instance.CrushThroughShield;
+                    minRelativeSpeed = isBlockedByShield ? UnblockableThrustConfig.Instance.ShieldMinRelativeSpeed : UnblockableThrustConfig.Instance.MinRelativeSpeed;
+                    mountedOnly = isBlockedByShield ? UnblockableThrustConfig.Instance.ShieldMountedOnly : UnblockableThrustConfig.Instance.MountedOnly;
+                }
+                
+                if (mountedOnly && !attackerAgent.HasMount)
+                {
+                    return;
+                }
 
-                    if (UnblockableThrustConfig.Instance.MountedOnly && !attackerAgent.HasMount)
+                if (minRelativeSpeed > 0)
+                {
+                    Vec2 velocityContribution1 = GetAgentVelocityContribution(attackerAgent);
+                    Vec2 velocityContribution2 = GetAgentVelocityContribution(defenderAgent);
+                    double relativeSpeed = (velocityContribution1 - velocityContribution2).Length;
+
+                    if (relativeSpeed < minRelativeSpeed)
                     {
                         return;
                     }
-
-                    if (UnblockableThrustConfig.Instance.MinRelativeSpeed > 0)
-                    {
-                        Vec2 velocityContribution1 = GetAgentVelocityContribution(attackerAgent);
-                        Vec2 velocityContribution2 = GetAgentVelocityContribution(defenderAgent);
-                        double relativeSpeed = (velocityContribution1 - velocityContribution2).Length;
-
-                        if (relativeSpeed < UnblockableThrustConfig.Instance.MinRelativeSpeed)
-                        {
-                            return;
-                        }
-                    }   
                 }
                 
-                EquipmentIndex wieldedOffhandItemIndex = defenderAgent.GetWieldedItemIndex(Agent.HandIndex.OffHand);
-                if (wieldedOffhandItemIndex != EquipmentIndex.None && defenderAgent.Equipment[wieldedOffhandItemIndex].CurrentUsageItem.IsShield)
+                if (allowCrushThroughShield)
                 {
-                    // InformationManager.DisplayMessage(new InformationMessage("thrust attack blocked by shield"));
-                    return;
+                    crushedThrough = collisionResult == CombatCollisionResult.Blocked || collisionResult == CombatCollisionResult.Parried;
                 }
+                else
+                {
+                    crushedThrough = collisionResult == CombatCollisionResult.Blocked && !isBlockedByShield;
+                }
+                
                 // InformationManager.DisplayMessage(new InformationMessage("thrust attack crushed through"));
-                crushedThrough = true;
+                
             }
         }
         
