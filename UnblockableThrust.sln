@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnblockableThrust", "UnblockableThrust.csproj", "{BF6F739D-BA83-4CEF-943B-CE3F8A8EFF2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnblockableThrust.MCM", "UnblockableThrust.MCM\UnblockableThrust.MCM.csproj", "{A372CCD1-6C86-4A27-A108-B1437E618A8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{BF6F739D-BA83-4CEF-943B-CE3F8A8EFF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF6F739D-BA83-4CEF-943B-CE3F8A8EFF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF6F739D-BA83-4CEF-943B-CE3F8A8EFF2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A372CCD1-6C86-4A27-A108-B1437E618A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A372CCD1-6C86-4A27-A108-B1437E618A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A372CCD1-6C86-4A27-A108-B1437E618A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A372CCD1-6C86-4A27-A108-B1437E618A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
