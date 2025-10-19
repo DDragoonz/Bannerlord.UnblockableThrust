@@ -10,7 +10,6 @@ namespace UnblockableThrust
             base.OnSubModuleLoad();
             new Harmony("mod.bannerlord.unblockablethrust").PatchAll();
         }
-
-
+        
     }
 }
