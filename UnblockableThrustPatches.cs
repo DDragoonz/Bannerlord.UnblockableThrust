@@ -38,7 +38,7 @@ namespace UnblockableThrust
                 bool allowCrushThroughShield = false;
                 double minRelativeSpeed = 0;
                 bool mountedOnly = false;
-                EquipmentIndex wieldedOffhandItemIndex = defenderAgent.GetOffhandWieldedItemIndex();
+                EquipmentIndex wieldedOffhandItemIndex = defenderAgent.GetWieldedItemIndex(Agent.HandIndex.OffHand);
                 bool isBlockedByShield = wieldedOffhandItemIndex != EquipmentIndex.None && defenderAgent.Equipment[wieldedOffhandItemIndex].CurrentUsageItem.IsShield;
                 
                 if (UnblockableThrustConfig.Instance != null)
